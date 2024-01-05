@@ -2,8 +2,8 @@
 
 import { useQuery } from "urql";
 import { useRouter } from "next/navigation";
+import { LoginForm } from "@ui/LoginForm";
 import { CurrentUserDocument, type CurrentUserQuery } from "@/gql/graphql";
-import { LoginForm } from "@/ui/components/LoginForm";
 
 export const LoginComponent = () => {
 	const router = useRouter();

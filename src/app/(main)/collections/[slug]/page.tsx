@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import { type ResolvingMetadata, type Metadata } from "next";
+import { ProductList } from "@ui/ProductList";
 import { ProductListByCollectionDocument } from "@/gql/graphql";
 import { executeGraphQL } from "@/lib/graphql";
-import { ProductList } from "@/ui/components/ProductList";
 
 export const generateMetadata = async (
 	{ params }: { params: { slug: string } },

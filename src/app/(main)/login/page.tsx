@@ -1,6 +1,6 @@
 import { Suspense } from "react";
+import { Loader } from "@atoms/Loader";
 import { LoginComponent } from "./LoginComponent";
-import { Loader } from "@/ui/atoms/Loader";
 
 export default function LoginPage() {
 	return (

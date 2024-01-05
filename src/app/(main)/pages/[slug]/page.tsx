@@ -14,7 +14,9 @@ export const generateMetadata = async ({ params }: { params: { slug: string } })
 	});
 
 	return {
-		title: `${page?.seoTitle || page?.title || "Page"} · Saleor Storefront example`,
+		title: `${page?.seoTitle || page?.title || "Page"} · ${
+			process.env.NEXT_PUBLIC_COMPANY_SHORT_NAME
+		} Storefront`,
 		description: page?.seoDescription || page?.seoTitle || page?.title,
 	};
 };

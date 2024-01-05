@@ -1,12 +1,12 @@
 import { notFound } from "next/navigation";
+import { Pagination } from "@ui/Pagination";
+import { ProductList } from "@ui/ProductList";
 import { ProductListPaginatedDocument } from "@/gql/graphql";
 import { ProductsPerPage, executeGraphQL } from "@/lib/graphql";
-import { Pagination } from "@/ui/components/Pagination";
-import { ProductList } from "@/ui/components/ProductList";
 
 export const metadata = {
-	title: "Products · Saleor Storefront example",
-	description: "All products in Saleor Storefront example",
+	title: `Products · ${process.env.NEXT_PUBLIC_COMPANY_SHORT_NAME}`,
+	description: `All products in ${process.env.NEXT_PUBLIC_COMPANY_NAME} Storefront`,
 };
 
 type Props = {

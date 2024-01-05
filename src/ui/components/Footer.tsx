@@ -16,8 +16,8 @@ export async function Footer() {
 					{footerLinks.menu?.items?.map((item) => {
 						return (
 							<div key={item.id}>
-								<h3 className="text-sm font-semibold text-neutral-900">{item.name}</h3>
-								<ul className="mt-4 space-y-4 [&>li]:text-neutral-500">
+								<h3 className="text-neutral-900 text-sm font-semibold">{item.name}</h3>
+								<ul className="[&>li]:text-neutral-500 mt-4 space-y-4">
 									{item.children?.map((child) => {
 										if (child.category) {
 											return (
@@ -55,9 +55,11 @@ export async function Footer() {
 					})}
 				</div>
 
-				<div className="flex flex-col justify-between border-t border-neutral-200 py-10 sm:flex-row">
-					<p className="text-sm text-neutral-500">Copyright &copy; {currentYear} Your Store, Inc.</p>
-					<p className="text-sm text-neutral-500">Powered by Saleor</p>
+				<div className="border-neutral-200 flex flex-col justify-between border-t py-10 sm:flex-row">
+					<p className="text-neutral-500 text-sm">
+						Copyright &copy; {currentYear} {process.env.NEXT_PUBLIC_COMPANY_NAME}
+					</p>
+					{/* <p className="text-sm text-neutral-500">Powered by Saleor</p> */}
 				</div>
 			</div>
 		</footer>

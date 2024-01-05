@@ -6,13 +6,13 @@ import { type ResolvingMetadata, type Metadata } from "next";
 import xss from "xss";
 import invariant from "ts-invariant";
 import { type WithContext, type Product } from "schema-dts";
+import { ProductImageWrapper } from "@atoms/ProductImageWrapper";
+import { AvailabilityMessage } from "@ui/AvailabilityMessage";
+import { VariantSelector } from "@ui/VariantSelector";
 import { AddButton } from "./AddButton";
-import { VariantSelector } from "@/ui/components/VariantSelector";
-import { ProductImageWrapper } from "@/ui/atoms/ProductImageWrapper";
 import { executeGraphQL, formatMoney, formatMoneyRange } from "@/lib/graphql";
 import { CheckoutAddLineDocument, ProductDetailsDocument, ProductListDocument } from "@/gql/graphql";
 import * as Checkout from "@/lib/checkout";
-import { AvailabilityMessage } from "@/ui/components/AvailabilityMessage";
 
 const shouldUseHttps =
 	process.env.NEXT_PUBLIC_STOREFRONT_URL?.startsWith("https") || !!process.env.NEXT_PUBLIC_VERCEL_URL;
@@ -188,10 +188,10 @@ export default async function Page(props: { params: { slug: string }; searchPara
 				)}
 				<div className="flex flex-col pt-6 sm:px-6 sm:pt-0">
 					<div>
-						<h1 className="mb-4 flex-auto text-3xl font-bold tracking-tight text-neutral-900">
+						<h1 className="text-neutral-900 mb-4 flex-auto text-3xl font-bold tracking-tight">
 							{product?.name}
 						</h1>
-						<p className="mb-8 text-sm font-medium text-neutral-900" data-testid="ProductElement_Price">
+						<p className="text-neutral-900 mb-8 text-sm font-medium" data-testid="ProductElement_Price">
 							{price}
 						</p>
 

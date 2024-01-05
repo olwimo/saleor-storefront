@@ -1,10 +1,10 @@
 import { type ReactNode } from "react";
-import { Footer } from "@/ui/components/Footer";
-import { Header } from "@/ui/components/Header";
+import { Footer } from "@ui/Footer";
+import { Header } from "@ui/Header";
 
 export const metadata = {
-	title: "Saleor Storefront example",
-	description: "Starter pack for building performant e-commerce experiences with Saleor.",
+	title: process.env.NEXT_PUBLIC_COMPANY_NAME,
+	description: `Starter pack for building performant e-commerce experiences with ${process.env.NEXT_PUBLIC_COMPANY_SHORT_NAME}.`,
 };
 
 export default function RootLayout(props: { children: ReactNode }) {

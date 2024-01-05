@@ -7,7 +7,7 @@ import * as Checkout from "@/lib/checkout";
 import { formatMoney } from "@/lib/graphql";
 
 export const metadata = {
-	title: "Shopping Cart · Saleor Storefront example",
+	title: `Shopping Cart · ${process.env.NEXT_PUBLIC_COMPANY_SHORT_NAME}`,
 };
 
 export default async function Page() {
@@ -18,13 +18,13 @@ export default async function Page() {
 	if (!checkout || checkout.lines.length < 1) {
 		return (
 			<section className="mx-auto max-w-7xl p-8">
-				<h1 className="mt-8 text-3xl font-bold text-neutral-900">Your Shopping Cart is empty</h1>
-				<p className="my-12 text-sm text-neutral-500">
+				<h1 className="text-neutral-900 mt-8 text-3xl font-bold">Your Shopping Cart is empty</h1>
+				<p className="text-neutral-500 my-12 text-sm">
 					Looks like you haven’t added any items to the cart yet.
 				</p>
 				<Link
 					href="/products"
-					className="inline-block max-w-full rounded border border-transparent bg-neutral-900 px-6 py-3 text-center font-medium text-neutral-50 hover:bg-neutral-800 aria-disabled:cursor-not-allowed aria-disabled:bg-neutral-500 sm:px-16"
+					className="bg-neutral-900 text-neutral-50 hover:bg-neutral-800 aria-disabled:bg-neutral-500 inline-block max-w-full rounded border border-transparent px-6 py-3 text-center font-medium aria-disabled:cursor-not-allowed sm:px-16"
 				>
 					Explore products
 				</Link>
@@ -34,16 +34,16 @@ export default async function Page() {
 
 	return (
 		<section className="mx-auto max-w-7xl p-8">
-			<h1 className="mt-8 text-3xl font-bold text-neutral-900">Your Shopping Cart</h1>
+			<h1 className="text-neutral-900 mt-8 text-3xl font-bold">Your Shopping Cart</h1>
 			<form className="mt-12">
 				<ul
 					data-testid="CartProductList"
 					role="list"
-					className="divide-y divide-neutral-200 border-b border-t border-neutral-200"
+					className="divide-neutral-200 border-neutral-200 divide-y border-b border-t"
 				>
 					{checkout.lines.map((item) => (
 						<li key={item.id} className="flex py-4">
-							<div className="aspect-square h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border bg-neutral-50 sm:h-32 sm:w-32">
+							<div className="bg-neutral-50 aspect-square h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border sm:h-32 sm:w-32">
 								{item.variant?.product?.thumbnail?.url && (
 									<Image
 										src={item.variant.product.thumbnail.url}
@@ -58,14 +58,14 @@ export default async function Page() {
 								<div className="flex justify-between justify-items-start gap-4">
 									<div className="">
 										<Link href={`/products/${item.variant.product.slug}?variant=${item.variant.id}`}>
-											<h2 className="font-medium text-neutral-700">{item.variant?.product?.name}</h2>
+											<h2 className="text-neutral-700 font-medium">{item.variant?.product?.name}</h2>
 										</Link>
-										<p className="mt-1 text-sm text-neutral-500">{item.variant?.product?.category?.name}</p>
+										<p className="text-neutral-500 mt-1 text-sm">{item.variant?.product?.category?.name}</p>
 										{item.variant.name !== item.variant.id && Boolean(item.variant.name) && (
-											<p className="mt-1 text-sm text-neutral-500">Variant: {item.variant.name}</p>
+											<p className="text-neutral-500 mt-1 text-sm">Variant: {item.variant.name}</p>
 										)}
 									</div>
-									<p className="text-right font-semibold text-neutral-900">
+									<p className="text-neutral-900 text-right font-semibold">
 										{formatMoney(item.totalPrice.gross.amount, item.totalPrice.gross.currency)}
 									</p>
 								</div>
@@ -79,13 +79,13 @@ export default async function Page() {
 				</ul>
 
 				<div className="mt-12">
-					<div className="rounded border bg-neutral-50 px-4 py-2">
+					<div className="bg-neutral-50 rounded border px-4 py-2">
 						<div className="flex items-center justify-between gap-2 py-2">
 							<div>
-								<p className="font-semibold text-neutral-900">Your Total</p>
-								<p className="mt-1 text-sm text-neutral-500">Shipping will be calculated in the next step</p>
+								<p className="text-neutral-900 font-semibold">Your Total</p>
+								<p className="text-neutral-500 mt-1 text-sm">Shipping will be calculated in the next step</p>
 							</div>
-							<div className="font-medium text-neutral-900">
+							<div className="text-neutral-900 font-medium">
 								{formatMoney(checkout.totalPrice.gross.amount, checkout.totalPrice.gross.currency)}
 							</div>
 						</div>

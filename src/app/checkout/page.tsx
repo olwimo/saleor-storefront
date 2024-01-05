@@ -2,7 +2,7 @@ import { invariant } from "ts-invariant";
 import { RootWrapper } from "./pageWrapper";
 
 export const metadata = {
-	title: "Checkout · Saleor Storefront example",
+	title: `Checkout · ${process.env.NEXT_PUBLIC_COMPANY_SHORT_NAME}`,
 };
 
 export default function CheckoutPage({
@@ -24,7 +24,7 @@ export default function CheckoutPage({
 						ACME
 					</a>
 				</div>
-				<h1 className="mt-8 text-3xl font-bold text-neutral-900">Checkout</h1>
+				<h1 className="text-neutral-900 mt-8 text-3xl font-bold">Checkout</h1>
 
 				<section className="mb-12 mt-6 flex-1">
 					<RootWrapper saleorApiUrl={process.env.NEXT_PUBLIC_SALEOR_API_URL} />

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const companyName = "ACME";
+const companyName = process.env.NEXT_PUBLIC_COMPANY_SHORT_NAME;
 
 export const Logo = () => {
 	const pathname = usePathname();

@@ -1,11 +1,10 @@
+import { ProductList } from "@ui/ProductList";
 import { ProductListByCollectionDocument } from "@/gql/graphql";
 import { executeGraphQL } from "@/lib/graphql";
-import { ProductList } from "@/ui/components/ProductList";
 
 export const metadata = {
-	title: "ACME Storefront, powered by Saleor & Next.js",
-	description:
-		"Storefront Next.js Example for building performant e-commerce experiences with Saleor - the composable, headless commerce platform for global brands.",
+	title: `${process.env.NEXT_PUBLIC_COMPANY_SHORT_NAME} Storefront, powered by Next.js`,
+	description: `Storefront in Next.js for building performant e-commerce experiences with ${process.env.NEXT_PUBLIC_COMPANY_NAME} - ${process.env.NEXT_PUBLIC_COMPANY_SLOGAN}.`,
 };
 
 export default async function Page() {
